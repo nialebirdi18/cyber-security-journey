@@ -1,35 +1,37 @@
+<!-- Hero image and polished header -->
+<p align="center">
+  <img src="assets/hero-padlock.svg" alt="Cyber security padlock" width="320"/>
+</p>
+
 # Niale's Cyber Security Journey
 
-This repository is organized as a structured learning roadmap and knowledge base to support a transition into cyber security.
-
-Final structure (updated)
-
-1. README.md
-2. 01-Foundations/
-3. 02-Security-Fundamentals/
-4. 03-Network-Security/
-5. 04-Windows-Security/
-6. 05-Blue-Team/
-7. 06-SIEM/
-8. 07-Home-Lab/
-9. 08-Projects/
-10. 09-Certifications/
-11. 10-Hack-The-Box/
-
-What's inside each folder — quick overview (expanded into headings inside each folder README):
-
-- 01-Foundations: Networking, Linux, SQL, Windows, PowerShell
-- 02-Security-Fundamentals: CIA Triad, Risk Management, Threat Actors, Authentication, Cryptography
-- 03-Network-Security: Firewalls, VPNs, IDS/IPS, Wireshark, Packet Analysis
-- 04-Windows-Security: Active Directory, Entra ID, Kerberos, NTLM, GPO, Event Logs
-- 05-Blue-Team: Incident Response, Threat Hunting, Investigations, Malware Analysis
-- 06-SIEM: Sentinel, KQL, Splunk, Detection Rules
-- 07-Home-Lab: Windows Server, Ubuntu, Kali, AD Build, Network Diagram
-- 08-Projects: DNS Investigation, AD Build, PowerShell Automation, Security Audits
-- 09-Certifications: Network+, Google Cybersecurity, Security+, HTB CPTS
-- 10-Hack-The-Box: Enumeration, Privilege Escalation, Windows, Linux, Reports
+<p align="center"><em>Niale's learning roadmap & practical home lab — building skills from foundations to SOC operations.</em></p>
 
 ---
 
-Per your request, the Careers folder has been removed from the structure. If you want the folder fully deleted from history, let me know and I can provide steps or a PR to remove it.
+This repository is organized as a structured learning roadmap and knowledge base to support a transition into cyber security. Use the folders below as categories and expand each section with notes, labs, and writeups.
 
+## Quick navigation
+
+1. 01-Foundations/
+2. 02-Security-Fundamentals/
+3. 03-Network-Security/
+4. 04-Windows-Security/
+5. 05-Blue-Team/
+6. 06-SIEM/
+7. 07-Home-Lab/
+8. 08-Projects/
+9. 09-Certifications/
+10. 10-Hack-The-Box/
+
+---
+
+## What I’ll add next
+
+- Clear templates for notes and labs
+- Project writeups and HTB reports
+- Playbooks and detection rules for SIEM
+
+---
+
+Per your request, the Careers folder has been removed from the top-level structure. If you want it restored elsewhere, I can add it back or create a separate career folder in a different branch.
