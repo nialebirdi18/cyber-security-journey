@@ -15,10 +15,40 @@ Transition into Cyber Security
 - [ ] Security+
 - [ ] Hack The Box
 
-## Current Projects
+---
 
-Coming Soon
+## Learning Roadmap
+
+### Foundations
+
+- Networking
+- Linux
+- Databases
+- Windows Security
+
+### Security
+
+- Security+
+- SOC Operations
+- Threat Hunting
+- Incident Response
+
+### Offensive Security
+
+- Hack The Box
+- Enumeration
+- Privilege Escalation
+- Web Security
+
+---
 
 ## Home Lab
 
-Coming Soon
+In Development
+
+---
+
+## Current Project
+
+Building a complete cyber security knowledge base and practical home lab.
+``
