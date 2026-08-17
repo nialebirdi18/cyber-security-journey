@@ -1,19 +1,34 @@
+# Niale's Cyber Security Journey
 
-## Personal Roadmap & Career Plan
+This repository is organized as a structured learning roadmap and knowledge base to support a transition into cyber security.
 
-This section captures Niale's personal learning and certification plan (what to study, how to log progress, and the order of certifications and hands-on practice).
+Final structure (updated)
 
-- Primary tracking platform: choose one of Jira / Notion / GitHub Projects / Confluence for logging work, study notes, and tasks. (Recommended: Notion for personal study + GitHub Projects for technical tasks & artifacts.)
-- Short-term goals:
-  - Attack the CompTIA Network+ (study fundamentals: networking, subnetting, routing, switching, TCP/IP, OSI model).
-  - Build strong Linux fundamentals (shell, networking tools, services, permissions, systemd, package management, logging).
-  - Learn databases: how they work (ACID, transactions), common engines (MySQL/Postgres), and how data moves across systems (clients, APIs, replication, backups).
-  - Start Google Cybersecurity Certificate pathway and prepare for CompTIA Security+ after Network+.
-- Mid-term goals:
-  - After Security+, move to hands-on practice and certifications on Hack The Box (aim for HTB CPTS and start practicing for the Active/SL1 exam paths).
-  - Gain Cloud fundamentals and certifications (AWS/Azure): focus on storage/services, IAM, networking in cloud, data flows between services, and logging/monitoring.
-- Long-term goals:
-  - Combine cloud, networking, Linux, and SIEM/Blue team skills to work on detection engineering and threat hunting.
-  - Build a portfolio of projects (AD build, DNS investigations, SIEM detections, HTB writeups).
+1. README.md
+2. 01-Foundations/
+3. 02-Security-Fundamentals/
+4. 03-Network-Security/
+5. 04-Windows-Security/
+6. 05-Blue-Team/
+7. 06-SIEM/
+8. 07-Home-Lab/
+9. 08-Projects/
+10. 09-Certifications/
+11. 10-Hack-The-Box/
 
-See PERSONAL_ROADMAP.md for a detailed, actionable plan with tasks, tracking suggestions, and a simple timeline.
+What's inside each folder — quick overview (expanded into headings inside each folder README):
+
+- 01-Foundations: Networking, Linux, SQL, Windows, PowerShell
+- 02-Security-Fundamentals: CIA Triad, Risk Management, Threat Actors, Authentication, Cryptography
+- 03-Network-Security: Firewalls, VPNs, IDS/IPS, Wireshark, Packet Analysis
+- 04-Windows-Security: Active Directory, Entra ID, Kerberos, NTLM, GPO, Event Logs
+- 05-Blue-Team: Incident Response, Threat Hunting, Investigations, Malware Analysis
+- 06-SIEM: Sentinel, KQL, Splunk, Detection Rules
+- 07-Home-Lab: Windows Server, Ubuntu, Kali, AD Build, Network Diagram
+- 08-Projects: DNS Investigation, AD Build, PowerShell Automation, Security Audits
+- 09-Certifications: Network+, Google Cybersecurity, Security+, HTB CPTS
+- 10-Hack-The-Box: Enumeration, Privilege Escalation, Windows, Linux, Reports
+
+---
+
+Per your request, the Careers folder has been removed from the structure. If you want the folder fully deleted from history, let me know and I can provide steps or a PR to remove it.
