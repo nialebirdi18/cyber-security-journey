@@ -26,12 +26,4 @@ This repository is organized as a structured learning roadmap and knowledge base
 
 ---
 
-## What I’ll add next
-
-- Clear templates for notes and labs
-- Project writeups and HTB reports
-- Playbooks and detection rules for SIEM
-
----
-
 If you prefer a different order, or want direct links to subtopic READMEs (for example "01-Foundations/Networking/README.md"), tell me and I’ll add them.
