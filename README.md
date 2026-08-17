@@ -1,6 +1,6 @@
-<!-- Hero image and polished header -->
+<!-- Hero image and polished header (absolute raw URL used to ensure GitHub displays the image) -->
 <p align="center">
-  <img src="assets/hero-padlock.svg" alt="Cyber security padlock" width="320"/>
+  <img src="https://raw.githubusercontent.com/nialebirdi18/cyber-security-journey/main/assets/hero-padlock.svg" alt="Cyber security padlock" width="320"/>
 </p>
 
 # Niale's Cyber Security Journey
