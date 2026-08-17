@@ -9,20 +9,20 @@
 
 ---
 
-This repository is organized as a structured learning roadmap and knowledge base to support a transition into cyber security. Use the folders below as categories and expand each section with notes, labs, and writeups.
+This repository is organized as a structured learning roadmap and knowledge base to support a transition into cyber security. Use the sections below to jump straight to the topic folder you want to work on.
 
 ## Quick navigation
 
-1. 01-Foundations/
-2. 02-Security-Fundamentals/
-3. 03-Network-Security/
-4. 04-Windows-Security/
-5. 05-Blue-Team/
-6. 06-SIEM/
-7. 07-Home-Lab/
-8. 08-Projects/
-9. 09-Certifications/
-10. 10-Hack-The-Box/
+- [01 - Foundations](01-Foundations/)
+- [02 - Security Fundamentals](02-Security-Fundamentals/)
+- [03 - Network Security](03-Network-Security/)
+- [04 - Windows Security](04-Windows-Security/)
+- [05 - Blue Team](05-Blue-Team/)
+- [06 - SIEM](06-SIEM/)
+- [07 - Home Lab](07-Home-Lab/)
+- [08 - Projects](08-Projects/)
+- [09 - Certifications](09-Certifications/)
+- [10 - Hack The Box](10-Hack-The-Box/)
 
 ---
 
@@ -34,4 +34,4 @@ This repository is organized as a structured learning roadmap and knowledge base
 
 ---
 
-Per your request, the Careers folder has been removed from the top-level structure. If you want it restored elsewhere, I can add it back or create a separate career folder in a different branch.
+If you prefer a different order, or want direct links to subtopic READMEs (for example "01-Foundations/Networking/README.md"), tell me and I’ll add them.
