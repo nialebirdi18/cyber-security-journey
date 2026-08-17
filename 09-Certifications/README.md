@@ -1,3 +1,19 @@
 # Certifications
 
-Study plans and resources for certifications (Network+, Google Cybersecurity, Security+, HTB CPTS). Add checklists and study notes here.
+Track certification study plans and resources.
+
+## Network+
+
+Study plan, resources, and practice exams.
+
+## Google Cybersecurity
+
+Course outline, notes, and exercises.
+
+## Security+
+
+Study topics, labs, and practice questions.
+
+## HTB CPTS
+
+HTB CPTS path, resources, and milestones.

@@ -1,3 +1,19 @@
 # Blue Team
 
-Defensive operations and blue team practices (Incident Response, Threat Hunting, Investigations, Malware Analysis). Add your runbooks and case studies here.
+Defensive security practices and operations.
+
+## Incident Response
+
+IR lifecycle, playbooks, containment, eradication, and recovery steps.
+
+## Threat Hunting
+
+Hunting methodologies, data sources, hypothesis-driven investigations.
+
+## Investigations
+
+Evidence collection, chain of custody, and analysis techniques.
+
+## Malware Analysis
+
+Static/dynamic analysis basics, sandboxing, and tooling.
