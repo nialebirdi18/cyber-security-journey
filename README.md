@@ -1,71 +1,19 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/nialebirdi18/cyber-security-journey/main/images/Cybersecurity_Roadmap_Banner.svg" alt="Cybersecurity Roadmap Banner" width="760"/>
-</p>
 
-# 🛡️ Niale's Cyber Security Journey
+## Personal Roadmap & Career Plan
 
-> A comprehensive, step-by-step learning roadmap and practical home lab for mastering cybersecurity — from foundations to SOC operations.
+This section captures Niale's personal learning and certification plan (what to study, how to log progress, and the order of certifications and hands-on practice).
 
----
+- Primary tracking platform: choose one of Jira / Notion / GitHub Projects / Confluence for logging work, study notes, and tasks. (Recommended: Notion for personal study + GitHub Projects for technical tasks & artifacts.)
+- Short-term goals:
+  - Attack the CompTIA Network+ (study fundamentals: networking, subnetting, routing, switching, TCP/IP, OSI model).
+  - Build strong Linux fundamentals (shell, networking tools, services, permissions, systemd, package management, logging).
+  - Learn databases: how they work (ACID, transactions), common engines (MySQL/Postgres), and how data moves across systems (clients, APIs, replication, backups).
+  - Start Google Cybersecurity Certificate pathway and prepare for CompTIA Security+ after Network+.
+- Mid-term goals:
+  - After Security+, move to hands-on practice and certifications on Hack The Box (aim for HTB CPTS and start practicing for the Active/SL1 exam paths).
+  - Gain Cloud fundamentals and certifications (AWS/Azure): focus on storage/services, IAM, networking in cloud, data flows between services, and logging/monitoring.
+- Long-term goals:
+  - Combine cloud, networking, Linux, and SIEM/Blue team skills to work on detection engineering and threat hunting.
+  - Build a portfolio of projects (AD build, DNS investigations, SIEM detections, HTB writeups).
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [How to Use This Roadmap](#how-to-use-this-roadmap)
-- [Roadmap Overview](#roadmap-overview)
-- [Foundation Phase](#foundation-phase)
-- [Technical Skills Phase](#technical-skills-phase)
-- [Specialization Phase](#specialization-phase)
-- [Advanced Phase](#advanced-phase)
-- [Folders & Quick Links](#folders--quick-links)
-
----
-
-## Introduction
-
-This repository is organized as a structured learning roadmap and knowledge base to support a transition into cybersecurity. Use the sections and folders below to follow a learning path from fundamentals to advanced topics, with labs and projects to build hands-on experience.
-
-## How to Use This Roadmap
-
-- Start with the Foundation Phase to build networking, Linux, Windows, and scripting basics.
-- Complete labs under `07-Home-Lab` and `08-Projects` to apply theory.
-- Use `06-SIEM` and `05-Blue-Team` to learn detection and response practices.
-- Track certifications and goals in `09-Certifications`.
-
-## Roadmap Overview
-
-The roadmap is split into logical phases that build on each other. Each folder contains README notes, labs, and suggested exercises.
-
-## Foundation Phase
-
-Core topics: Networking, Linux, SQL, Windows, PowerShell. Focus on fundamentals and basic lab setup.
-
-## Technical Skills Phase
-
-Build skills: Packet analysis, host hardening, scanning, detection engineering, and incident response basics.
-
-## Specialization Phase
-
-Choose a path: Red team (offense), Blue team (defense), Cloud security, Application security, or SIEM/Detection engineering.
-
-## Advanced Phase
-
-Advanced topics, real-world projects, threat hunting, and tool mastery.
-
-## Folders & Quick Links
-
-- [01 - Foundations](01-Foundations/)
-- [01 - Networking](01-Networking/)
-- [02 - Security Fundamentals](02-Security-Fundamentals/)
-- [03 - Network Security](03-Network-Security/)
-- [04 - Windows Security](04-Windows-Security/)
-- [05 - Blue Team](05-Blue-Team/)
-- [06 - SIEM](06-SIEM/)
-- [07 - Home Lab](07-Home-Lab/)
-- [08 - Projects](08-Projects/)
-- [09 - Certifications](09-Certifications/)
-- [10 - Hack The Box](10-Hack-The-Box/)
-
----
-
-*If you want any section expanded (for example more detail in Foundation Phase or direct links to subtopic README files), tell me which sections and I will add them.*
+See PERSONAL_ROADMAP.md for a detailed, actionable plan with tasks, tracking suggestions, and a simple timeline.
