@@ -341,11 +341,12 @@
             {
                 id: 1,
                 name: "Palo Alto Networks Cybersecurity Practitioner",
-                subtitle: "Foundational Tier - START HERE",
+                subtitle: "🚀 START HERE - Foundational Tier",
                 description: "Validates knowledge of cybersecurity, network security, endpoint security, cloud security, and SOC operations. Bridges networking and security concepts before Security+.",
                 tier: "Foundational",
                 cost: "~$150",
                 domains: "Cybersecurity fundamentals, network security, cloud security, endpoint security, SOC operations, AAA framework, Zero Trust, MITRE ATT&CK",
+                why: "Bridges Network+ and Security+ in one step. Blends networking and security concepts. Vendor credibility with Palo Alto enterprise deployment. Maps to realistic first roles: SOC Analyst, Security Operations Technician, Junior Security Engineer.",
                 status: "Not Started",
                 dueDate: "",
                 notes: "",
@@ -499,6 +500,7 @@
                 const priorityBadge = cert.priority ? '<div class="cert-badge">🚀 START HERE</div>' : '';
                 const tierDisplay = cert.tier ? `<div style="color: #94a3b8; font-size: 0.85em; margin-bottom: 10px;"><strong>Tier:</strong> ${cert.tier}${cert.cost ? ` | Cost: ${cert.cost}` : ''}</div>` : '';
                 const domainsDisplay = cert.domains ? `<div style="color: #94a3b8; font-size: 0.85em; margin-bottom: 10px;"><strong>Domains:</strong> ${cert.domains}</div>` : '';
+                const whyDisplay = cert.why ? `<div style="color: #cbd5e1; font-size: 0.85em; margin: 10px 0; padding: 10px; background: #0f172a; border-left: 3px solid #22d3ee; border-radius: 4px;"><strong>Why:</strong> ${cert.why}</div>` : '';
 
                 card.innerHTML = `
                     ${priorityBadge}
@@ -507,6 +509,7 @@
                     <div class="status-display">${statusEmojis[cert.status]}</div>
                     ${tierDisplay}
                     ${domainsDisplay}
+                    ${whyDisplay}
                     
                     <div class="form-group">
                         <label>Status</label>
