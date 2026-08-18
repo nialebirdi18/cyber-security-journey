@@ -4,6 +4,8 @@
 
 This repository is organized as a structured learning roadmap and knowledge base to support a transition into cyber security. Use the links below to jump straight to a folder or section.
 
+---
+
 ## Quick links to sections (each header links to the folder)
 
 - [01 - Foundations](#foundations)
@@ -19,6 +21,8 @@ This repository is organized as a structured learning roadmap and knowledge base
 - [10 - Hack The Box](#hack-the-box)
 - [11 - Exams](#exams)
 
+---
+
 ## Table of contents
 
 1. [Description of my plan](#description-of-my-plan)
@@ -32,12 +36,13 @@ This repository is organized as a structured learning roadmap and knowledge base
 
 My goal is to move into cybersecurity with a clear, practical learning path:
 
-1. **Master networking in detail** and pass CompTIA Network+ (subnetting, routing, switching, TCP/IP, OSI model).
-2. **Build deep Linux knowledge** (shell, services, permissions, networking tools, logging).
-3. **Learn databases** and how data transfers across systems (ACID, replication, backups, client-server flows).
-4. **Complete the Google Cybersecurity Certificate**, then CompTIA Security+.
-5. **After foundational certs**, focus on hands-on practice and certifications (Hack The Box — SL1/CPTS).
-6. **Add cloud certifications** (AWS / Azure) to understand cloud storage, services, IAM, and data flows.
+1. **Start with Palo Alto Networks Cybersecurity Practitioner** (Foundational tier) — bridges networking and security concepts before diving deeper.
+2. **Master networking in detail** and pass CompTIA Network+ (subnetting, routing, switching, TCP/IP, OSI model).
+3. **Build deep Linux knowledge** (shell, services, permissions, networking tools, logging).
+4. **Learn databases** and how data transfers across systems (ACID, replication, backups, client-server flows).
+5. **Complete the Google Cybersecurity Certificate**, then CompTIA Security+.
+6. **After foundational certs**, focus on hands-on practice and certifications (Hack The Box — SL1/CPTS).
+7. **Add cloud certifications** (AWS / Azure) to understand cloud storage, services, IAM, and data flows.
 
 You can find the full, detailed personal roadmap in: [PERSONAL_ROADMAP.md](PERSONAL_ROADMAP.md)
 
@@ -46,6 +51,7 @@ You can find the full, detailed personal roadmap in: [PERSONAL_ROADMAP.md](PERSO
 ## How I will log progress
 
 - **Primary tracker** (choose one): Notion (recommended) or GitHub Projects for repo-tied tasks. Keep a daily learning log and a study board.
+- **Interactive Tracker**: Use [tracker.html](tracker.html) to update certification status and due dates in real-time.
 - **Repo structure for artifacts:**
   - `notes/` (topic notes)
   - `labs/` (lab steps and results)
@@ -57,27 +63,36 @@ You can find the full, detailed personal roadmap in: [PERSONAL_ROADMAP.md](PERSO
 
 ## Exams and certification path (details)
 
-### Progress at a glance
+### 🚀 Start Here: Palo Alto Networks Cybersecurity Practitioner
 
-| # | Certification | Status | Target date | Notes |
-|---|---|---|---|---|
-| 1 | CompTIA Network+ | ⬜ Not started | | |
-| 2 | Google Cybersecurity Certificate | ⬜ Not started | | |
-| 3 | CompTIA Security+ | ⬜ Not started | | |
-| 4 | HTB CPTS | ⬜ Not started | | |
-| 5 | HTB (SL1 / current path name — verify on HTB Academy) | ⬜ Not started | | |
-| 6 | AWS Cloud Practitioner *or* Azure Fundamentals (AZ-900) | ⬜ Not started | | |
-| 7 | AWS Solutions Architect Associate *or* Azure Administrator | ⬜ Not started | | |
-| 8 | Cloud security specialty (AWS Security Specialty / Azure Security Engineer) | ⬜ Not started | | optional |
-| 9 | OSCP or equivalent hands-on pentest cert | ⬜ Not started | | advanced |
+**Foundational Tier | ~$150 | Covers: Network Security, Cloud Security, Endpoint Security, SOC Operations**
 
-*(Update the Status column as you go: ⬜ Not started → 🟨 Studying → 🟦 Scheduled → ✅ Passed)*
+This is the ideal first cert for your transition into security. Here's why:
+
+- **Bridges concepts**: Combines networking and security fundamentals in one exam, so you're not repeating concepts.
+- **Vendor credibility**: Palo Alto is one of the most deployed firewall/security platforms in enterprise environments.
+- **Realistic career path**: Maps directly to first-level security roles — SOC Analyst, Security Operations Technician, Junior Security Engineer.
+- **Covers core frameworks**: AAA framework, Zero Trust concepts, MITRE ATT&CK, advanced persistent threats.
+- **Practical assessment**: Mix of multiple-choice, multiple-response, drag-and-drop, and case-study questions — tests applied understanding, not just memorization.
+
+**Best suited for**: People with some basic networking and security exposure (like you, with IT support background).
+
+**Study domains**:
+- Cybersecurity fundamentals
+- Network security
+- Cloud security
+- Endpoint security
+- SOC operations
+- AAA framework & Zero Trust concepts
+- MITRE ATT&CK framework
+- Detection and response basics
 
 ---
 
-### Suggested certification path (entry → advanced)
+### Full Certification Path (Entry → Advanced)
 
 #### 1. Entry / Foundations
+- **Palo Alto Networks Cybersecurity Practitioner** ← **START HERE**
 - **CompTIA Network+** — core networking fundamentals (subnetting, TCP/IP, routing, switching).
 - **Google Cybersecurity Certificate** — structured introduction to cybersecurity concepts with practical labs.
 - *(Optional)* CompTIA IT Fundamentals or Google IT Support, if starting from zero IT background.
@@ -98,6 +113,16 @@ You can find the full, detailed personal roadmap in: [PERSONAL_ROADMAP.md](PERSO
 #### 5. Advanced / professional
 - **Offensive:** OSCP (Offensive Security Certified Professional) or equivalent hands-on pentesting cert.
 - **Defensive:** Splunk/Elastic/Sentinel specialist certs, Certified Threat Intelligence Analyst, or advanced cloud security certs.
+
+---
+
+### Interactive Progress Tracker
+
+**Use the [tracker.html](tracker.html) file to:**
+- Update certification status in real-time (⬜ → 🟨 → 🟦 → ✅)
+- Set and track due dates for each cert
+- Add personal notes and study progress
+- Export/import your progress as JSON
 
 ---
 
@@ -123,6 +148,7 @@ Copy this into `checklist.md` for each new exam folder:
 
 | Certification | Why it's here |
 |---|---|
+| Palo Alto Networks Cybersecurity Practitioner | **Start here.** Bridges networking + security. Vendor credibility. Maps to realistic first roles (SOC Analyst). |
 | CompTIA Network+ | Foundation for every networking concept used across security roles |
 | Google Cybersecurity Certificate | Structured, beginner-friendly entry with real labs |
 | CompTIA Security+ | Baseline security cert most widely recognized by employers |
