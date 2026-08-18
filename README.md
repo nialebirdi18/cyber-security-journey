@@ -101,30 +101,6 @@ You can find the full, detailed personal roadmap in: [PERSONAL_ROADMAP.md](PERSO
 
 ---
 
-### How to use this folder
-
-Each exam gets its own subfolder containing:
-
-```
-11-Exams/
-  banner.svg
-  README.md                 # this file
-  NetworkPlus/
-    study-plan.md            # topics, timeline
-    resources.md             # official guides, courses, practice tests
-    labs/                     # VM images, scripts, PCAPs
-    checklist.md              # ready-for-exam checklist
-  SecurityPlus/
-    study-plan.md
-    resources.md
-    labs/
-    checklist.md
-  GoogleCybersecurity/
-    ...
-```
-
----
-
 ### Starter checklist template
 
 Copy this into `checklist.md` for each new exam folder:
@@ -216,7 +192,3 @@ HTB machine writeups, methodology notes, and hands-on penetration testing practi
 ## Exams
 
 Official exam study materials, practice tests, and exam preparation tracking.
-
----
-
-*Next step: pick the first 1–2 exam folders to scaffold (e.g. `NetworkPlus/`, `SecurityPlus/`) and I'll generate `study-plan.md`, `resources.md`, and `checklist.md` for each.*
