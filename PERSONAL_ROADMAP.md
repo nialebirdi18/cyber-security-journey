@@ -1,96 +1,146 @@
-# PERSONAL_ROADMAP
+# Cybersecurity Career Roadmap: IT Support → IT Security
 
-This file documents a practical, trackable roadmap you asked to add to the project. Use it as a living plan: update tasks, mark progress, and attach notes or artifacts to the repository or your chosen tracking platform.
-
-## Core objectives (summary)
-
-1. Understand networking in detail and pass CompTIA Network+
-2. Master Linux fundamentals and server internals
-3. Understand databases and how data moves between systems
-4. Complete Google Cybersecurity Certificate and CompTIA Security+
-5. Move to hands-on HTB practice and pursue HTB CPTS / SL1
-6. Obtain cloud certifications (AWS / Azure) to understand data storage and service interconnections
+This roadmap replaces the previous `PERSONAL_ROADMAP.md`. It's built around one core idea: **your IT support job is already inside the roadmap, not outside it.** Every phase below tells you what to study *and* how to turn your day-to-day support work into evidence for a security role.
 
 ---
 
-## Tracking & platform recommendation
+## 0. Why IT Support → Security is a strong path (and how to use it)
 
-Pick one primary place to log progress and one place for artifact storage:
+Hiring managers for junior security roles (SOC Analyst, IT Security Analyst, Security+ adjacent roles) actively want candidates who've done support, because you already understand:
 
-- Tracking (tasks, study schedule): Notion (personal) or Jira (if you prefer Scrum/kanban); GitHub Projects works well for repo-tied tasks.
-- Artifacts (notes, code, PCAPs, lab configs, writeups): store in this repo (in folders like `notes/`, `labs/`, `captures/`, `writeups/`) and reference from your tracker.
-- Documentation: use Markdown files in this repo for reproducible notes. Use one file per topic (e.g., `networking/notes.md`, `linux/notes.md`, `databases/notes.md`).
+- How real networks, tickets, and users actually break (most attacks start with a helpdesk-style problem: phishing, a weird login, a slow machine).
+- Windows/AD administration, patching, and endpoint basics.
+- How to document, triage, and escalate — which is exactly what a SOC analyst does with alerts.
 
-Recommended: Notion for overall study plan and calendar + GitHub repository for all technical artifacts and projects.
-
----
-
-## Detailed plan & suggested milestones
-
-Milestone A — Foundations (0–2 months)
-- Goals:
-  - Solidify OSI model, TCP/IP, subnetting, routing basics
-  - Get comfortable with Linux shell, basic administration, and networking tools
-  - Learn basic SQL and common DB concepts (tables, indexes, transactions)
-- Tasks:
-  - Create daily/weekly study cards in your tracker for topics (e.g., "Subnetting practice 30 min", "Wireshark exercises").
-  - Add `01-Networking/notes.md` and `01-Networking/labs/lab1.md` to the repo.
-  - Complete Network+ study modules and practice quizzes.
-
-Milestone B — Core certs & skills (3–6 months)
-- Goals:
-  - Pass CompTIA Network+
-  - Start Google Cybersecurity Certificate
-  - Deepen Linux knowledge (services, logging, permissions, shell scripting)
-- Tasks:
-  - Schedule the Network+ exam; create a study calendar and checklist in your tracker.
-  - Add practical labs: packet captures, nmap scans, simple IDS detection rules.
-  - Create `linux/` notes and small projects (e.g., automate log parsing with a script).
-
-Milestone C — Security+ & Hands-on practice (6–12 months)
-- Goals:
-  - Pass CompTIA Security+
-  - Begin consistent HTB practice (easy/medium boxes, writeups)
-  - Start SIEM basics (play with Splunk or Sentinel and KQL)
-- Tasks:
-  - Link study notes and lab artifacts in the repo to your tracker tasks.
-  - For HTB, create `10-Hack-The-Box/writeups/` and add a template for writeups.
-
-Milestone D — Advanced & Cloud (after certs)
-- Goals:
-  - Pursue HTB CPTS / SL1 certification paths
-  - Obtain foundational cloud certs (AWS Solutions Architect – Associate or Azure Fundamentals)
-  - Build portfolio projects that showcase cross-domain knowledge (e.g., AD lab + detection rules in Sentinel)
-- Tasks:
-  - Create cloud lab documentation (deploy small VPC, storage, logging, IAM examples) in `07-Home-Lab/cloud/`.
-  - Add a `projects/` folder with project outlines and deliverables.
+**Action while you study:** keep a running list in your repo (`transition-notes.md`) of support tickets that map to security concepts — a phishing report, a locked-out account, a suspicious login, a firewall change request. These become interview stories and, later, portfolio writeups.
 
 ---
 
-## Concrete next actions (this week)
-- Choose your primary tracker (Notion recommended). Create a study board with columns: Backlog / In Progress / Blocked / Done.
-- Add 10 high-priority study tasks (Network+ topics) and assign target dates.
-- Add `01-Networking/notes.md` and `01-Networking/labs/lab1.md` to this repo.
-- Start a "Daily Learning Log" file (learning-log.md) and write 5–10 minutes each day of what you did and what to do next.
+## 1. Phase-by-phase plan
+
+### Phase 1 — Networking Fundamentals + CompTIA Network+ (Weeks 1–8)
+**Goal:** Understand networking well enough that packet flow, addressing, and troubleshooting are second nature — not memorized trivia.
+
+- Start with a baseline check (done — see the quiz above) to see what you already know from support work.
+- Core topics: OSI & TCP/IP models, IPv4/IPv6 addressing, subnetting (practice until it's fast, not just correct), switching vs routing, VLANs, DNS, DHCP, NAT, common ports/protocols, cabling & wireless basics, network troubleshooting methodology.
+- Study flow: 1 topic/week → notes → 20–30 min subnetting drills daily → practice questions → Wireshark lab to *see* the concept on the wire.
+- Milestone: pass **CompTIA Network+ (N10-009)**.
+
+### Phase 2 — Deep Linux (Weeks 6–12, overlaps Phase 1)
+**Goal:** Be comfortable enough in Linux to administer, troubleshoot, and investigate a box without hesitating.
+
+- Shell fundamentals: navigation, permissions (`chmod`/`chown`/umask), process management, package management.
+- Services & systemd: starting/stopping/enabling services, reading unit files.
+- Networking tools: `ip`, `ss`/`netstat`, `curl`, `dig`/`nslookup`, `tcpdump`, `nmap`.
+- Logging: `/var/log`, `journalctl`, syslog basics — this is the bridge into SOC/log-analysis work.
+- Shell scripting: automate one real thing (e.g., a log-parsing script) and put it in the repo.
+- Optional but recommended here: **CompTIA Linux+** or a structured course (e.g., Linux Journey / OverTheWire Bandit) if you want a checkpoint.
+
+### Phase 3 — Databases & Data Flow (Weeks 10–14, overlaps Phase 2)
+**Goal:** Understand how data is stored, moved, and secured between systems — this underpins both cloud and appsec knowledge later.
+
+- Core concepts: relational model, SQL basics (SELECT/JOIN/INSERT), indexes, transactions and **ACID**, normalization.
+- Systems concepts: client-server request flow, replication, backups/recovery, connection strings, and where credentials/secrets typically live (a common attack surface).
+- Light hands-on: stand up a local MySQL/PostgreSQL instance, write a few queries, break/restore it once so backups are real to you.
+
+### Phase 4 — Foundational Security Certs (Months 3–7)
+**Goal:** Build the security vocabulary and framework knowledge employers screen for.
+
+1. **Google Cybersecurity Certificate** — broad, beginner-friendly, includes intro Python and SIEM (Splunk) exposure.
+2. **CompTIA Security+** — the industry baseline cert; ties together networking + Linux + security concepts you already have.
+- Study flow: use your Network+/Linux notes as scaffolding — most Security+ topics (firewalls, IAM, cryptography basics, risk concepts) will click faster because you already have the plumbing knowledge.
+
+### Phase 5 — Hands-On Practice & Offensive/Defensive Certs (Months 6–14)
+**Goal:** Move from "I know the theory" to "I can do the work" — this is what actually gets interviews.
+
+- Start on **Hack The Box**: easy machines first, always write a private writeup even when you solve it, note what you'd search for next time.
+- SIEM/detection practice: Splunk or Microsoft Sentinel free tiers, write a few detection queries (KQL/SPL) against sample logs.
+- Certification targets: **HTB CPTS** (Certified Penetration Testing Specialist) and/or **HTB CBBH/other paths**; SL1 (if referring to a specific HTB Academy path, confirm the exact current name before scheduling, since HTB renames paths occasionally.
+- Also consider **CompTIA Pentest+** or **eJPT** around here if you want a lower-cost proof point before HTB's paid certs.
+
+### Phase 6 — Cloud Security (Months 10+, ongoing)
+**Goal:** Understand cloud storage, identity, networking, and logging — nearly every modern environment is hybrid or cloud-first.
+
+- Pick one cloud first (AWS or Azure — Azure pairs naturally if your support work is Windows/AD-heavy; AWS is more universally requested).
+- Core topics: IAM (roles/policies), VPC/networking, storage (S3/Blob) and its common misconfigurations, logging (CloudTrail/Azure Monitor), shared responsibility model.
+- Certs: **AWS Cloud Practitioner → AWS Security Specialty**, or **Azure Fundamentals (AZ-900) → Azure Security Engineer (AZ-500)**.
+- Build one portfolio project: a small cloud environment with logging/alerting configured, documented in `projects/`.
 
 ---
 
-## Example checklist for each certification
-- Study plan created (Yes/No)
-- Materials collected (videos, books, practice tests)
-- Lab environment configured (VMs, captures, tools)
-- Practice tests completed (number & score)
-- Exam scheduled
-- Exam passed (date)
-- Post-exam writeup added to repo (notes and lessons learned)
+## 2. Tracking system
+
+- **Primary tracker:** GitHub Projects (kanban board tied directly to this repo — no context-switching to a separate app). Columns: `Backlog / Studying / Lab-in-Progress / Blocked / Done`.
+- **Daily log:** `notes/learning-log.md` — one dated entry per study day, 5–10 minutes, format below.
+- **Weekly review:** every Sunday, review the week's log entries and move Project board cards.
+
+### `learning-log.md` entry template
+```markdown
+## YYYY-MM-DD
+- Studied: <topic>
+- Did: <what you actually did — reading, lab, quiz score>
+- Understood: <the one thing that clicked>
+- Still fuzzy on: <what to revisit>
+- Next: <tomorrow's plan>
+```
 
 ---
 
-## How I can help next (examples)
-- Create templates in the repo: `learning-log.md`, `notes-template.md`, `lab-writeup-template.md`, `cert-checklist.md`.
-- Add the first lab under `01-Networking/labs/lab1.md` (packet capture basics) and provide a sample pcap in `01-Networking/captures/`.
-- Set up a GitHub Project board in this repo with the milestones & tasks.
+## 3. Repository structure
+
+```
+cyber-security-journey/
+├── PERSONAL_ROADMAP.md          # this file
+├── notes/
+│   └── learning-log.md          # daily log
+├── 01-Networking/
+│   ├── notes.md
+│   ├── labs/
+│   │   └── lab1-subnetting.md
+│   └── captures/
+│       └── sample1.pcap
+├── 02-Linux/
+│   ├── notes.md
+│   └── labs/
+├── 03-Databases/
+│   └── notes.md
+├── 04-Security-Foundations/      # Google Cert + Security+
+│   └── notes.md
+├── 05-Cloud/
+│   ├── aws/
+│   └── azure/
+├── 10-Hack-The-Box/
+│   └── writeups/
+│       └── box-template.md
+├── projects/
+│   └── (portfolio projects, e.g. cloud lab, detection rules)
+└── templates/
+    ├── notes-template.md
+    ├── lab-writeup-template.md
+    └── cert-checklist.md
+```
 
 ---
 
-Update this file as you progress. When you want, tell me which templates or first lab to create and I will add them to the repository.
+## 4. Cert checklist template (reuse per certification)
+
+- [ ] Study plan created
+- [ ] Materials collected (course, book, practice tests)
+- [ ] Lab environment configured
+- [ ] Practice tests completed (log scores over time — you want to see upward trend, not just a pass)
+- [ ] Exam scheduled
+- [ ] Exam passed (date)
+- [ ] Post-exam writeup added to `notes/` (what helped, what you'd do differently)
+
+---
+
+## 5. Immediate next actions
+
+1. Take the networking fundamentals quiz (delivered separately) to confirm your starting point.
+2. Create the folder structure above in the repo.
+3. Add `notes/learning-log.md` and make today's first entry.
+4. Set up the GitHub Projects board with the 6 phases as top-level tracking columns/epics.
+5. Book week 1: OSI model + TCP/IP deep dive + first subnetting drill set.
+
+---
+*Update this file as milestones are hit — check off certs, add dates, and link to writeups as they land.*
