@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification Progress Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #22d3ee, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: #1e293b;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .legend-item span:first-child {
+            font-size: 1.5em;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #22d3ee;
+            text-align: center;
+        }
+
+        .summary-card .number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #22d3ee;
+        }
+
+        .summary-card .label {
+            color: #94a3b8;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: #22d3ee;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cert-card.completed {
+            border-left: 4px solid #10b981;
+        }
+
+        .cert-card.in-progress {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .cert-card.scheduled {
+            border-left: 4px solid #3b82f6;
+        }
+
+        .cert-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        select, input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #f8fafc;
+            font-family: inherit;
+            font-size: 0.95em;
+        }
+
+        select:focus, input[type="date"]:focus, textarea:focus {
+            outline: none;
+            border-color: #22d3ee;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #22d3ee, #6366f1);
+            border: none;
+            border-radius: 6px;
+            color: #0b1220;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 211, 238, 0.4);
+        }
+
+        .btn-secondary {
+            background: #334155;
+            color: #f8fafc;
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+            box-shadow: 0 5px 15px rgba(100, 116, 139, 0.4);
+        }
+
+        .status-display {
+            font-size: 2em;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .date-display {
+            color: #94a3b8;
+            font-size: 0.9em;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .notes-display {
+            color: #cbd5e1;
+            font-size: 0.9em;
+            margin: 10px 0;
+            padding: 10px;
+            background: #0f172a;
+            border-radius: 6px;
+            min-height: 40px;
+        }
+
+        .export-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: #1e293b;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .export-section button {
+            width: auto;
+            padding: 12px 30px;
+        }
+
+        .success-message {
+            color: #10b981;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Certification Progress Tracker</h1>
+            <p class="subtitle">Track your cybersecurity certification journey</p>
+        </header>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span>⬜</span>
+                <span>Not Started</span>
+            </div>
+            <div class="legend-item">
+                <span>🟨</span>
+                <span>Studying</span>
+            </div>
+            <div class="legend-item">
+                <span>🟦</span>
+                <span>Scheduled</span>
+            </div>
+            <div class="legend-item">
+                <span>✅</span>
+                <span>Passed</span>
+            </div>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="number" id="totalCount">9</div>
+                <div class="label">Total Certs</div>
+            </div>
+            <div class="summary-card">
+                <div class="number" id="completedCount">0</div>
+                <div class="label">Completed</div>
+            </div>
+            <div class="summary-card">
+                <div class="number" id="inProgressCount">0</div>
+                <div class="label">In Progress</div>
+            </div>
+            <div class="summary-card">
+                <div class="number" id="scheduledCount">0</div>
+                <div class="label">Scheduled</div>
+            </div>
+        </div>
+
+        <div class="certifications-grid" id="certsContainer"></div>
+
+        <div class="export-section">
+            <h2 style="margin-bottom: 15px;">Save Your Progress</h2>
+            <button onclick="exportData()">📥 Download Progress (JSON)</button>
+            <button class="btn-secondary" onclick="importData()" style="margin-left: 10px;">📤 Upload Progress (JSON)</button>
+            <input type="file" id="importFile" style="display:none;" accept=".json">
+            <div id="exportMessage" class="success-message" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        const certifications = [
+            {
+                id: 1,
+                name: "CompTIA Network+",
+                description: "Core networking fundamentals (subnetting, TCP/IP, routing, switching)",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 2,
+                name: "Google Cybersecurity Certificate",
+                description: "Structured introduction to cybersecurity concepts with practical labs",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 3,
+                name: "CompTIA Security+",
+                description: "Baseline security knowledge (access control, cryptography, threats/mitigation)",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 4,
+                name: "HTB CPTS",
+                description: "Certified Penetration Testing Specialist - Hands-on proof of real offensive skill",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 5,
+                name: "HTB SL1 / Current Path",
+                description: "Verify exact current name on HTB Academy before committing",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 6,
+                name: "AWS Cloud Practitioner or Azure Fundamentals (AZ-900)",
+                description: "Cloud basics - choose AWS or Azure",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 7,
+                name: "AWS Solutions Architect Associate or Azure Administrator",
+                description: "Deeper cloud networking & services - choose AWS or Azure",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 8,
+                name: "Cloud Security Specialty (Optional)",
+                description: "AWS Security Specialty or Azure Security Engineer (AZ-500)",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 9,
+                name: "OSCP or Equivalent (Advanced)",
+                description: "Offensive Security Certified Professional or equivalent",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            }
+        ];
+
+        const statusEmojis = {
+            "Not Started": "⬜",
+            "Studying": "🟨",
+            "Scheduled": "🟦",
+            "Passed": "✅"
+        };
+
+        // Load data from localStorage
+        function loadData() {
+            const saved = localStorage.getItem('certifications');
+            if (saved) {
+                return JSON.parse(saved);
+            }
+            return certifications;
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            const certs = document.querySelectorAll('.cert-card');
+            certs.forEach((card, index) => {
+                const status = card.querySelector('select[name="status"]').value;
+                const dueDate = card.querySelector('input[name="dueDate"]').value;
+                const notes = card.querySelector('textarea[name="notes"]').value;
+                
+                certifications[index].status = status;
+                certifications[index].dueDate = dueDate;
+                certifications[index].notes = notes;
+            });
+            localStorage.setItem('certifications', JSON.stringify(certifications));
+            updateSummary();
+        }
+
+        // Render certification cards
+        function renderCards() {
+            const data = loadData();
+            const container = document.getElementById('certsContainer');
+            container.innerHTML = '';
+
+            data.forEach((cert, index) => {
+                const card = document.createElement('div');
+                card.className = `cert-card ${cert.status === 'Passed' ? 'completed' : cert.status === 'Studying' ? 'in-progress' : cert.status === 'Scheduled' ? 'scheduled' : ''}`;
+                
+                const dueDateDisplay = cert.dueDate ? new Date(cert.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'No due date set';
+
+                card.innerHTML = `
+                    <div class="cert-title">${cert.name}</div>
+                    <div class="status-display">${statusEmojis[cert.status]}</div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status" onchange="saveData()">
+                            <option value="Not Started" ${cert.status === 'Not Started' ? 'selected' : ''}>⬜ Not Started</option>
+                            <option value="Studying" ${cert.status === 'Studying' ? 'selected' : ''}>🟨 Studying</option>
+                            <option value="Scheduled" ${cert.status === 'Scheduled' ? 'selected' : ''}>🟦 Scheduled</option>
+                            <option value="Passed" ${cert.status === 'Passed' ? 'selected' : ''}>✅ Passed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" name="dueDate" value="${cert.dueDate}" onchange="saveData()">
+                        <div class="date-display">${dueDateDisplay}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea name="notes" placeholder="Add notes about your progress..." onchange="saveData()">${cert.notes}</textarea>
+                    </div>
+
+                    <p style="color: #94a3b8; font-size: 0.9em; margin-top: 10px;">${cert.description}</p>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Update summary counts
+        function updateSummary() {
+            const data = loadData();
+            const completed = data.filter(c => c.status === 'Passed').length;
+            const inProgress = data.filter(c => c.status === 'Studying').length;
+            const scheduled = data.filter(c => c.status === 'Scheduled').length;
+
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('inProgressCount').textContent = inProgress;
+            document.getElementById('scheduledCount').textContent = scheduled;
+        }
+
+        // Export data
+        function exportData() {
+            const data = JSON.parse(localStorage.getItem('certifications')) || certifications;
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `certification-tracker-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            
+            const msg = document.getElementById('exportMessage');
+            msg.textContent = '✅ Progress downloaded successfully!';
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 3000);
+        }
+
+        // Import data
+        function importData() {
+            document.getElementById('importFile').click();
+        }
+
+        document.getElementById('importFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    try {
+                        const data = JSON.parse(event.target.result);
+                        localStorage.setItem('certifications', JSON.stringify(data));
+                        renderCards();
+                        updateSummary();
+                        
+                        const msg = document.getElementById('exportMessage');
+                        msg.textContent = '✅ Progress imported successfully!';
+                        msg.style.display = 'block';
+                        setTimeout(() => msg.style.display = 'none', 3000);
+                    } catch (error) {
+                        alert('Error importing file. Please make sure it is a valid JSON file.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        // Initialize
+        window.addEventListener('load', function() {
+            renderCards();
+            updateSummary();
+        });
+    </script>
+</body>
+</html>
