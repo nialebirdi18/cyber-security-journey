@@ -265,6 +265,13 @@
             margin-top: 10px;
         }
 
+        .pricing-note {
+            font-size: 0.75em;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .certifications-grid {
                 grid-template-columns: 1fr;
@@ -344,7 +351,7 @@
                 subtitle: "🚀 START HERE - Foundational Tier",
                 description: "Validates knowledge of cybersecurity, network security, endpoint security, cloud security, and SOC operations. Bridges networking and security concepts before Security+.",
                 tier: "Foundational",
-                cost: "~$150",
+                cost: "£115 + VAT",
                 domains: "Cybersecurity fundamentals, network security, cloud security, endpoint security, SOC operations, AAA framework, Zero Trust, MITRE ATT&CK",
                 why: "Bridges Network+ and Security+ in one step. Blends networking and security concepts. Vendor credibility with Palo Alto enterprise deployment. Maps to realistic first roles: SOC Analyst, Security Operations Technician, Junior Security Engineer.",
                 status: "Not Started",
@@ -358,7 +365,7 @@
                 subtitle: "Networking Fundamentals",
                 description: "Core networking fundamentals (subnetting, TCP/IP, routing, switching)",
                 tier: "Foundational",
-                cost: "~$125",
+                cost: "£261 + VAT",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -367,9 +374,9 @@
                 id: 3,
                 name: "Google Cybersecurity Certificate",
                 subtitle: "Structured Introduction",
-                description: "Structured introduction to cybersecurity concepts with practical labs",
+                description: "Structured introduction to cybersecurity concepts with practical labs. Delivered via Coursera, typically completed in 3-6 months.",
                 tier: "Foundational",
-                cost: "~$200",
+                cost: "~£114-£240 (3-6 months)",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -380,7 +387,7 @@
                 subtitle: "Industry Baseline",
                 description: "Baseline security knowledge (access control, cryptography, threats/mitigation)",
                 tier: "Core",
-                cost: "~$150",
+                cost: "£233-£268 + VAT",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -391,7 +398,7 @@
                 subtitle: "Hands-On Penetration Testing",
                 description: "Certified Penetration Testing Specialist - Hands-on proof of real offensive skill",
                 tier: "Hands-On",
-                cost: "~$250",
+                cost: "£180-£250 (varies)",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -402,29 +409,29 @@
                 subtitle: "Verify on HTB Academy",
                 description: "Verify exact current name on HTB Academy before committing",
                 tier: "Hands-On",
-                cost: "Varies",
+                cost: "£180-£250 (varies)",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 7,
-                name: "AWS Cloud Practitioner or Azure Fundamentals (AZ-900)",
+                name: "AWS Cloud Practitioner",
                 subtitle: "Cloud Fundamentals",
-                description: "Cloud basics - choose AWS or Azure",
+                description: "Cloud basics and foundational AWS knowledge. Exam fee only.",
                 tier: "Cloud",
-                cost: "~$100",
+                cost: "~£80-£85",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 8,
-                name: "AWS Solutions Architect Associate or Azure Administrator",
+                name: "AWS Solutions Architect Associate",
                 subtitle: "Cloud Advanced",
-                description: "Deeper cloud networking & services - choose AWS or Azure",
+                description: "Deeper cloud architecture, networking & services knowledge",
                 tier: "Cloud",
-                cost: "~$150",
+                cost: "~£120-£130",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -433,9 +440,9 @@
                 id: 9,
                 name: "Cloud Security Specialty (Optional)",
                 subtitle: "Cloud Security Specialization",
-                description: "AWS Security Specialty or Azure Security Engineer (AZ-500)",
+                description: "AWS Security Specialty certification for cloud-focused security roles",
                 tier: "Specialization",
-                cost: "~$150",
+                cost: "~£120-£130",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -444,9 +451,9 @@
                 id: 10,
                 name: "OSCP or Equivalent (Advanced)",
                 subtitle: "Professional Penetration Testing",
-                description: "Offensive Security Certified Professional or equivalent",
+                description: "Offensive Security Certified Professional or equivalent advanced cert",
                 tier: "Advanced",
-                cost: "~$999",
+                cost: "£600-£750+",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -533,6 +540,7 @@
                     </div>
 
                     <p style="color: #94a3b8; font-size: 0.9em; margin-top: 10px;">${cert.description}</p>
+                    <p class="pricing-note">💷 Pricing as of 2024-2025. Check official sources for current rates.</p>
                 `;
 
                 container.appendChild(card);
