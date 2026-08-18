@@ -125,11 +125,33 @@
             border-left: 4px solid #3b82f6;
         }
 
+        .cert-card.priority {
+            border-top: 3px solid #ec4899;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: #ec4899;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
         .cert-title {
             font-size: 1.3em;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: 600;
             color: #f8fafc;
+        }
+
+        .cert-subtitle {
+            color: #cbd5e1;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .form-group {
@@ -286,7 +308,7 @@
 
         <div class="summary">
             <div class="summary-card">
-                <div class="number" id="totalCount">9</div>
+                <div class="number" id="totalCount">10</div>
                 <div class="label">Total Certs</div>
             </div>
             <div class="summary-card">
@@ -318,72 +340,112 @@
         const certifications = [
             {
                 id: 1,
-                name: "CompTIA Network+",
-                description: "Core networking fundamentals (subnetting, TCP/IP, routing, switching)",
+                name: "Palo Alto Networks Cybersecurity Practitioner",
+                subtitle: "Foundational Tier - START HERE",
+                description: "Validates knowledge of cybersecurity, network security, endpoint security, cloud security, and SOC operations. Bridges networking and security concepts before Security+.",
+                tier: "Foundational",
+                cost: "~$150",
+                domains: "Cybersecurity fundamentals, network security, cloud security, endpoint security, SOC operations, AAA framework, Zero Trust, MITRE ATT&CK",
                 status: "Not Started",
                 dueDate: "",
-                notes: ""
+                notes: "",
+                priority: true
             },
             {
                 id: 2,
-                name: "Google Cybersecurity Certificate",
-                description: "Structured introduction to cybersecurity concepts with practical labs",
+                name: "CompTIA Network+",
+                subtitle: "Networking Fundamentals",
+                description: "Core networking fundamentals (subnetting, TCP/IP, routing, switching)",
+                tier: "Foundational",
+                cost: "~$125",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 3,
-                name: "CompTIA Security+",
-                description: "Baseline security knowledge (access control, cryptography, threats/mitigation)",
+                name: "Google Cybersecurity Certificate",
+                subtitle: "Structured Introduction",
+                description: "Structured introduction to cybersecurity concepts with practical labs",
+                tier: "Foundational",
+                cost: "~$200",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 4,
-                name: "HTB CPTS",
-                description: "Certified Penetration Testing Specialist - Hands-on proof of real offensive skill",
+                name: "CompTIA Security+",
+                subtitle: "Industry Baseline",
+                description: "Baseline security knowledge (access control, cryptography, threats/mitigation)",
+                tier: "Core",
+                cost: "~$150",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 5,
-                name: "HTB SL1 / Current Path",
-                description: "Verify exact current name on HTB Academy before committing",
+                name: "HTB CPTS",
+                subtitle: "Hands-On Penetration Testing",
+                description: "Certified Penetration Testing Specialist - Hands-on proof of real offensive skill",
+                tier: "Hands-On",
+                cost: "~$250",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 6,
-                name: "AWS Cloud Practitioner or Azure Fundamentals (AZ-900)",
-                description: "Cloud basics - choose AWS or Azure",
+                name: "HTB SL1 / Current Path",
+                subtitle: "Verify on HTB Academy",
+                description: "Verify exact current name on HTB Academy before committing",
+                tier: "Hands-On",
+                cost: "Varies",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 7,
-                name: "AWS Solutions Architect Associate or Azure Administrator",
-                description: "Deeper cloud networking & services - choose AWS or Azure",
+                name: "AWS Cloud Practitioner or Azure Fundamentals (AZ-900)",
+                subtitle: "Cloud Fundamentals",
+                description: "Cloud basics - choose AWS or Azure",
+                tier: "Cloud",
+                cost: "~$100",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 8,
-                name: "Cloud Security Specialty (Optional)",
-                description: "AWS Security Specialty or Azure Security Engineer (AZ-500)",
+                name: "AWS Solutions Architect Associate or Azure Administrator",
+                subtitle: "Cloud Advanced",
+                description: "Deeper cloud networking & services - choose AWS or Azure",
+                tier: "Cloud",
+                cost: "~$150",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
             },
             {
                 id: 9,
+                name: "Cloud Security Specialty (Optional)",
+                subtitle: "Cloud Security Specialization",
+                description: "AWS Security Specialty or Azure Security Engineer (AZ-500)",
+                tier: "Specialization",
+                cost: "~$150",
+                status: "Not Started",
+                dueDate: "",
+                notes: ""
+            },
+            {
+                id: 10,
                 name: "OSCP or Equivalent (Advanced)",
+                subtitle: "Professional Penetration Testing",
                 description: "Offensive Security Certified Professional or equivalent",
+                tier: "Advanced",
+                cost: "~$999",
                 status: "Not Started",
                 dueDate: "",
                 notes: ""
@@ -430,13 +492,21 @@
 
             data.forEach((cert, index) => {
                 const card = document.createElement('div');
-                card.className = `cert-card ${cert.status === 'Passed' ? 'completed' : cert.status === 'Studying' ? 'in-progress' : cert.status === 'Scheduled' ? 'scheduled' : ''}`;
+                card.className = `cert-card ${cert.status === 'Passed' ? 'completed' : cert.status === 'Studying' ? 'in-progress' : cert.status === 'Scheduled' ? 'scheduled' : ''} ${cert.priority ? 'priority' : ''}`;
                 
                 const dueDateDisplay = cert.dueDate ? new Date(cert.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'No due date set';
+                
+                const priorityBadge = cert.priority ? '<div class="cert-badge">🚀 START HERE</div>' : '';
+                const tierDisplay = cert.tier ? `<div style="color: #94a3b8; font-size: 0.85em; margin-bottom: 10px;"><strong>Tier:</strong> ${cert.tier}${cert.cost ? ` | Cost: ${cert.cost}` : ''}</div>` : '';
+                const domainsDisplay = cert.domains ? `<div style="color: #94a3b8; font-size: 0.85em; margin-bottom: 10px;"><strong>Domains:</strong> ${cert.domains}</div>` : '';
 
                 card.innerHTML = `
+                    ${priorityBadge}
                     <div class="cert-title">${cert.name}</div>
+                    ${cert.subtitle ? `<div class="cert-subtitle">${cert.subtitle}</div>` : ''}
                     <div class="status-display">${statusEmojis[cert.status]}</div>
+                    ${tierDisplay}
+                    ${domainsDisplay}
                     
                     <div class="form-group">
                         <label>Status</label>
